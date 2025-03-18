@@ -1,7 +1,5 @@
 package org.example;
 
-//TIP To <b>Run</b> code, press <shortcut actionId="Run"/> or
-// click the <icon src="AllIcons.Actions.Execute"/> icon in the gutter.
 public class GameOfLife {
 
     public static void main(String[] args) {
@@ -16,18 +14,26 @@ public class GameOfLife {
     }
 
     public static boolean[][] gameOfLife(boolean[][] board) {
+        boolean[][] state = new boolean[board.length][];
+        for (int i = 0; i < board.length; i++) {
+            state[i] = board[i].clone();
+        }
         for (int row = 0; row < board.length; row++) {
             for (int col = 0; col < board[row].length; col++) {
                 if (neighboursCheckOneZeroOrMoreThanThree(board, row, col))
-                    board[row][col]=false;
-                if (board[row][col])
+                    state[row][col]=false;
+            }
+        }
+        for (int row = 0; row < state.length; row++) {
+            for (int col = 0; col < state[row].length; col++) {
+                if (state[row][col])
                     System.out.print("*");
                 else
                     System.out.print(".");
             }
             System.out.println();
         }
-        return board;
+        return state;
     }
 
     public static boolean neighboursCheckOneZeroOrMoreThanThree(boolean[][] board, int row, int col) {
