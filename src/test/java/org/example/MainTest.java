@@ -48,8 +48,8 @@ class MainTest {
         boolean[][] result = GameOfLife.gameOfLife(board);
         board= new boolean[][]{
                 {false, true, false, false},
-                {false, true, false, false},
-                {false, false, false, false},
+                {false, false, false, true},
+                {false, false, true, false},
         };
         assertArrayEquals(board, result);
     }
