@@ -16,8 +16,6 @@ public class GameOfLife {
     }
 
     public static boolean[][] gameOfLife(boolean[][] board) {
-        board[1][2] = false;
-        board[2][3] = false;
         for (int row = 0; row < board.length; row++) {
             for (int col = 0; col < board[row].length; col++) {
                 if (board[row][col])
