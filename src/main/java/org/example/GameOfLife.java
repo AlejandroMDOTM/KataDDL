@@ -27,4 +27,6 @@ public class GameOfLife {
         }
         return board;
     }
+
+
 }

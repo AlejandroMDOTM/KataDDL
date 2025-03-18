@@ -8,14 +8,18 @@ class MainTest {
 
     @Test
     void liveCellWithLessThanTwoNeighboursDies() {
-        GameOfLife gameOfLife = new GameOfLife();
         boolean[][] board={
                 { false, false, false, false },
                 { false, false, true, false },
                 {false, false, false, true },
         };
         boolean[][] result = GameOfLife.gameOfLife(board);
-        assertEquals(board, result);
+         board= new boolean[][]{
+                 {false, false, false, false},
+                 {false, false, false, false},
+                 {false, false, false, false},
+         };
+        assertArrayEquals(board, result);
     }
 
 }
