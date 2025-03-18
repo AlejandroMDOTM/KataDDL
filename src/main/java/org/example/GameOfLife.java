@@ -18,7 +18,7 @@ public class GameOfLife {
     public static boolean[][] gameOfLife(boolean[][] board) {
         for (int row = 0; row < board.length; row++) {
             for (int col = 0; col < board[row].length; col++) {
-                if (neighboursCheckOneOrZero(board, row, col))
+                if (neighboursCheckOneZeroOrMoreThanThree(board, row, col))
                     board[row][col]=false;
                 if (board[row][col])
                     System.out.print("*");
@@ -30,7 +30,7 @@ public class GameOfLife {
         return board;
     }
 
-    public static boolean neighboursCheckOneOrZero(boolean[][] board, int row, int col) {
+    public static boolean neighboursCheckOneZeroOrMoreThanThree(boolean[][] board, int row, int col) {
         int trueCount = 0;
         for (int i = -1; i <= 1; i++) {
             for (int j = -1; j <= 1; j++) {
@@ -44,7 +44,7 @@ public class GameOfLife {
                 }
             }
         }
-     return trueCount<2 ? true : false;
+        return trueCount<2||trueCount>3? true : false;
     }
 
 }
