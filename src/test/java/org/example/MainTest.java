@@ -38,4 +38,20 @@ class MainTest {
         assertArrayEquals(board, result);
     }
 
+    @Test
+    void secondTestliveCellWithMoreThanThreeNeighboursDies() {
+        boolean[][] board={
+                { false, true, true, false },
+                { false, true, true, true },
+                {false, false, true, false },
+        };
+        boolean[][] result = GameOfLife.gameOfLife(board);
+        board= new boolean[][]{
+                {false, true, false, false},
+                {false, true, false, false},
+                {false, false, false, false},
+        };
+        assertArrayEquals(board, result);
+    }
+
 }
